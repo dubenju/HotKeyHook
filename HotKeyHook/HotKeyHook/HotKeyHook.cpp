@@ -55,11 +55,14 @@ LRESULT CALLBACK KeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
         int fUp = 0x40000000 & lParam;
         // if (nCode == HC_ACTION && !fUp && wParam == VK_F7) {
         if (p->vkCode == 0x51) {
+            // Q
             UnhookWindowsHookEx(myhook);
             SendMessage(hgWnd, WM_CLOSE, wParam, lParam);
             return TRUE;
         }
-        if (wParam == WM_KEYDOWN && p->vkCode == 0x50) {
+        if (wParam == WM_KEYDOWN && p->vkCode == 0xC0) {
+            // C0 @
+            // 50 P
             // run program;
             STARTUPINFO si;
             PROCESS_INFORMATION pi;
